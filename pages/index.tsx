@@ -1,9 +1,14 @@
-import { HomeSection } from '../styles/pages/home';
+import Image from 'next/image';
+import { HomeSection, ImageSection } from '../styles/pages/home';
+import devIcon from '../public/images/coding.png';
 
 export default function Home() {
   return (
     <HomeSection>
-      <h1>Hello</h1>
+      <ImageSection>
+        <Image src={devIcon} alt="dev img" width={70} height={70} />
+        <h1>Edudevs</h1>
+      </ImageSection>
     </HomeSection>
   );
 }
