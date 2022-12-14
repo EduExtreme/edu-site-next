@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { HomeSection, ImageSection } from '../styles/pages/home';
-import devIcon from '../public/images/coding.png';
+import { HomeSection, ImageSection } from '../../styles/pages/home';
+import devIcon from '../../public/images/coding.png';
 
 export default function Home() {
   return (
