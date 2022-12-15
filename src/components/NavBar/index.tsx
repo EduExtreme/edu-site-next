@@ -1,29 +1,26 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import Marquee from 'react-fast-marquee';
+import animatedJS from '../../../public/images/javascript-icon.gif';
+import animatedCSS from '../../../public/images/iconsTs.svg';
+import animatedTS from '../../../public/images/iconCss.svg';
+import animatedDev from '../../../public/images/giphy.gif';
+
+import { Header } from './styles';
 
 export default function Navbar() {
   return (
-    <Header>
-      <nav>
-        <span>
-          <Link href="/">
-            <b>Lucas</b> Viga
-          </Link>
-        </span>
+    <Marquee>
+      <Header>
+        <div className="iconsdivide">
+          <p>Edudevs</p>
 
-        <ul>
-          <li>
-            <ActiveLink href="/education" activeClassName="nav-active">
-              education
-            </ActiveLink>
-          </li>
-
-          <li>
-            <ActiveLink href="/experience" activeClassName="nav-active">
-              experience
-            </ActiveLink>
-          </li>
-        </ul>
-      </nav>
-    </Header>
+          <Image src={animatedJS} alt="dev img" width={50} height={50} />
+          <Image src={animatedTS} alt="dev img" width={50} height={50} />
+          <Image src={animatedCSS} alt="dev img" width={50} height={50} />
+          <Image src={animatedDev} alt="dev img" width={100} height={100} />
+        </div>
+      </Header>
+    </Marquee>
   );
 }

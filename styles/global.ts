@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   body {    
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: var(--blue-900);
+
     height: 100%;
   }
   `;

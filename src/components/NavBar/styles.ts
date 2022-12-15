@@ -1,32 +1,21 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 1rem 0 0;
-    display: none;
-  }
-  nav {
+  display: flex;
+  color: var(--blue-900);
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 0px;
+  background: white;
+
+  .iconsdivide {
+    p {
+      display: flex;
+      font-size: 1.5rem;
+    }
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: var(--green-500);
-    .nav-active {
-      color: var(--purple-300);
-    }
-    > span {
-      font-size: 1.25rem;
-    }
-    ul {
-      display: flex;
-      gap: 3.75rem;
-
-      li a {
-        transition: all 0.5s ease;
-      }
-      a:hover {
-        color: var(--purple-300);
-      }
-    }
+    gap: 10rem;
   }
 `;
