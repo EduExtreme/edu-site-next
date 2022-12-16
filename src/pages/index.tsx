@@ -3,7 +3,7 @@ import {
   HomeSection,
   ImageSection,
   ProfileContents,
-  ProfileItem,
+  Avatar,
   SectionCards,
 } from '../../styles/pages/home';
 
@@ -21,23 +21,21 @@ export default function Home() {
             <Image src={devIcon} alt="dev img" width={70} height={70} />
           </div>
 
-          <div className="name-logo">
-            <h1>EduExtreme</h1>
-          </div>
+          <h1 className="name-logo">EduExtreme</h1>
         </ImageSection>
-
-        <ProfileItem />
-        <ProfileContents>
-          <div className="profile-text">
-            <h1>Hi, my name is Eduardo</h1>
-            <span>Im Front-End React Developer</span>
-          </div>
-        </ProfileContents>
+        <div>
+          <Avatar />
+          <ProfileContents>
+            <div className="profile-text">
+              <h1>Hi, my name is Eduardo</h1>
+              <span>Im Front-End React Developer</span>
+            </div>
+          </ProfileContents>
+        </div>
+        <Card />
       </HomeSection>
 
-      <SectionCards>
-        <Card />
-      </SectionCards>
+      <SectionCards>AAAAAAA</SectionCards>
     </>
   );
 }
