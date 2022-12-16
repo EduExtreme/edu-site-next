@@ -16,14 +16,15 @@ export default function Home() {
     <>
       <Navbar />
       <HomeSection>
-        <ImageSection>
-          <div className="img-item">
-            <Image src={devIcon} alt="dev img" width={70} height={70} />
-          </div>
-
-          <h1 className="name-logo">EduExtreme</h1>
-        </ImageSection>
         <div>
+          <ImageSection>
+            <div className="img-item">
+              <Image src={devIcon} alt="dev img" width={70} height={70} />
+            </div>
+
+            <h1 className="name-logo">EduExtreme</h1>
+          </ImageSection>
+
           <Avatar />
           <ProfileContents>
             <div className="profile-text">
