@@ -5,7 +5,7 @@ export const Header = styled.header`
   color: var(--blue-900);
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 5rem;
   border-radius: 0px;
   background: white;
 

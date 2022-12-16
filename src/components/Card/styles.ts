@@ -7,16 +7,18 @@ export const CardSection = styled.section`
 `;
 export const CardProfile = styled.div`
   .header-card {
-    width: 400px;
-    height: 200px;
+    width: 18.75rem;
+    height: 12.5rem;
     border-radius: 1rem 1rem 0 0;
-    background: var(--blue-900);
+    background: var(--blue-100);
   }
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 500px;
-  background: white;
+  width: 18.75rem;
+  height: 31.25rem;
+  background: var(--blue-900);
   border-radius: 1rem;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
