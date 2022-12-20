@@ -2,16 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --blue-900:#0f172a;
-    --blue-800:#1e40af;
-    --blue-700:#1d4ed8;
-    --blue-600:#2563eb;
-    --blue-500:#3b82f6;
-    --blue-400:#38bdf8;
-    --blue-300:#7dd3fc;
-    --blue-200:#bfdbfe;
-    --blue-100:#e0e7ff;
-    --blue-50:#eff6ff;
+    --blue-900:#164E63;
+    --blue-800:#075985;
+    --blue-700:#0E7490;
+    --blue-600:#0891B2;
+    --blue-500:#06B6D4;
+    --blue-400:#22D3EE;
+    --blue-300:#67E8F9;
+    --blue-200:#A5F3FC;
+    --blue-100:#CFFAFE;
+    --blue-50:#ECFEFF;
     --white: #ffffff;
   }
   * {

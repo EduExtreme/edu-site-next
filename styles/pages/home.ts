@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const HomeSection = styled.section`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   background-image: url('/images/wave.svg');
   height: 80vh;
   background-size: cover;
   width: 100%;
   padding: 2rem 4rem;
-  display: flex;
+
   /* background: aquamarine; */
 
   div {
@@ -67,11 +69,7 @@ export const ImageSection = styled.section`
     animation-iteration-count: infinite;
   }
 `;
-export const SectionCards = styled.section`
-  display: flex;
-  justify-content: center;
-  margin: -30rem -0rem 1rem 0rem;
-`;
+
 export const ProfileContents = styled.div`
   .profile-text {
     color: white;

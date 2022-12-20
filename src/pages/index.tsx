@@ -4,7 +4,6 @@ import {
   ImageSection,
   ProfileContents,
   Avatar,
-  SectionCards,
 } from '../../styles/pages/home';
 
 import devIcon from '../../public/images/Edudevs.png';
@@ -35,8 +34,6 @@ export default function Home() {
         </div>
         <Card />
       </HomeSection>
-
-      <SectionCards>AAAAAAA</SectionCards>
     </>
   );
 }
