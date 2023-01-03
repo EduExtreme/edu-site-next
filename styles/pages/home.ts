@@ -1,18 +1,34 @@
 import styled from 'styled-components';
 
 export const HomeSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background-image: url('/images/wave.svg');
-  height: 80vh;
+  display: flex;
   background-size: cover;
+  text-align: center;
   width: 100%;
   padding: 2rem 4rem;
+  color: white;
 
-  /* background: aquamarine; */
+  .new-web-site-title {
+    font-size: 60px;
 
-  div {
-    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    span {
+      @keyframes animatedProfile {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      animation-name: animatedProfile;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      color: var(--blue-200);
+    }
   }
 `;
 export const Avatar = styled.div`

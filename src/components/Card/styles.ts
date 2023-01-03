@@ -9,8 +9,8 @@ export const CardProfile = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 50px;
+    width: 18.75rem;
+    height: 3.125rem;
     color: var(--blue-900);
     border-radius: 1rem 1rem 0 0;
     background: var(--blue-100);
@@ -22,7 +22,7 @@ export const CardProfile = styled.div`
     }
   }
   li {
-    padding: 16px 2px;
+    padding: 16px 15px;
     font-size: 1rem;
   }
   width: 18.75rem;

@@ -7,13 +7,12 @@ import {
 } from '../../styles/pages/home';
 
 import devIcon from '../../public/images/Edudevs.png';
-import Navbar from '../components/NavBar';
-import Card from '../components/Card';
+import NavMenu from '../components/NavMenu';
+import { GoBackButton } from '../components/GoBackButton';
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <HomeSection>
         <div>
           <ImageSection>
@@ -32,7 +31,11 @@ export default function Home() {
             </div>
           </ProfileContents>
         </div>
-        <Card />
+        <div className="new-web-site-title">
+          <h1>
+            Its <span>TIME</span> for a New <span>WEBSITE</span>
+          </h1>
+        </div>
       </HomeSection>
     </>
   );

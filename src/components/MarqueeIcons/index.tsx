@@ -13,7 +13,7 @@ import iconStyled from '../../../public/images/styled-components.png';
 
 import { Header } from './styles';
 
-export default function Navbar() {
+export default function MarqueeIcons() {
   return (
     <Marquee speed={60} pauseOnHover gradient gradientColor={[1, 14, 47]}>
       <Header>

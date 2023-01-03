@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { FaReact } from '@react-icons/all-files/fa/FaReact';
+
 import { CardProfile, CardSection } from './styles';
-import gitRepo from '../../../public/images/gitRepos.png';
 
 type Repository = {
   name: string;
@@ -29,7 +29,7 @@ export default function CardProfiles() {
             <CardSection>
               <CardProfile>
                 <div className="header-card">
-                  <Image src={gitRepo} alt="dev img" width={30} height={25} />
+                  <FaReact size="1.875rem" />
                   <p className="title-item-card">{repo.name}</p>
                 </div>
                 <li>{repo.description}</li>
