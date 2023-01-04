@@ -6,7 +6,7 @@ export function TodoProject() {
   const [todoItem, setTodoItem] = useState('');
   const [items, setItems] = useState([
     {
-      id: uuidv4(),
+      id: '1234',
       name: 'todo 01',
       isDone: false,
     },
@@ -25,6 +25,20 @@ export function TodoProject() {
       setTodoItem('');
     }
   };
+  const handleToggle = (id) => {
+    const xItems = items.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          isDone: !item.isDone,
+        };
+      }
+
+      return item;
+    });
+
+    setItems(xItems);
+  };
 
   return (
     <TodoSection>
@@ -41,8 +55,10 @@ export function TodoProject() {
         </button>
       </TodoApp>
       <ul>
-        {items.map((id, name) => (
-          <li key={id}>{name}</li>
+        {items.map(({ id, name }) => (
+          <li key={id} onClick={() => handleToggle(id)}>
+            {name}
+          </li>
         ))}
       </ul>
     </TodoSection>
