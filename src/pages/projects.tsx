@@ -1,4 +1,4 @@
-import { ProjectsSection } from '../../styles/projects';
+import { ProjectsSection } from '../../styles/pages/projects';
 import { GoBackButton } from '../components/GoBackButton';
 import { TodoProject } from '../components/TodoProject';
 

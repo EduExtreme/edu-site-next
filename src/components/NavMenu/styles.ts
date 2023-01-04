@@ -9,6 +9,7 @@ export const NavContainer = styled.section`
     rgba(0, 67, 221, 0.01724439775910369) 50%,
     rgba(3, 2, 82, 1) 100%
   );
+
   .first-items {
     display: flex;
     align-items: center;

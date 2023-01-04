@@ -3,64 +3,62 @@ import { v4 as uuidv4 } from 'uuid';
 import { TodoApp, TodoSection } from './styles';
 
 export function TodoProject() {
-  const [todoItem, setTodoItem] = useState('');
-  const [items, setItems] = useState([
-    {
-      id: '1234',
-      name: 'todo 01',
-      isDone: false,
-    },
-  ]);
+  const [todoTask, setTodoTask] = useState('');
+  const [task, setTask] = useState([]);
 
   const handleAdd = () => {
-    if (todoItem) {
-      setItems([
+    if (todoTask) {
+      setTask([
         {
           id: uuidv4(),
-          name: todoItem,
+          name: todoTask,
           isDone: false,
         },
-        ...items,
+        ...task,
       ]);
-      setTodoItem('');
+      setTodoTask('');
     }
   };
-  const handleToggle = (id) => {
-    const xItems = items.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          isDone: !item.isDone,
-        };
-      }
 
-      return item;
-    });
-
-    setItems(xItems);
+  const deleteTask = (index: number) => {
+    task.splice(index, 1);
+    setTask([...task]);
   };
+  const editTask = (index) => {};
 
+  console.log(task);
   return (
     <TodoSection>
       <TodoApp>
         <h1>Todo APP</h1>
         <input
           type="text"
-          value={todoItem}
-          onChange={(e) => setTodoItem(e.target.value)}
-          placeholder="add to-do task "
+          value={todoTask}
+          onChange={(e) => setTodoTask(e.target.value)}
+          placeholder="add a Task"
         />
         <button type="button" onClick={handleAdd}>
           Add
         </button>
+
+        {task.length > 0 ? (
+          <ul>
+            {task.map((data, index) => (
+              <li key={uuidv4()}>
+                {data.name}
+                <button type="button" onClick={() => deleteTask(index)}>
+                  Delete
+                </button>
+                <button type="button" onClick={() => editTask(index)}>
+                  Concluir
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Nenhuma Task Adcionada</p>
+        )}
       </TodoApp>
-      <ul>
-        {items.map(({ id, name }) => (
-          <li key={id} onClick={() => handleToggle(id)}>
-            {name}
-          </li>
-        ))}
-      </ul>
     </TodoSection>
   );
 }

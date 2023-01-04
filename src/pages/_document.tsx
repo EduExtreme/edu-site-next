@@ -38,28 +38,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head>
-          <Script
-            strategy="beforeInteractive"
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-199678396-1"
-          />
-          <Script
-            strategy="beforeInteractive"
-            id=""
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag() {
-                dataLayer.push(arguments);
-              }
-              gtag('js', new Date());
-        
-              gtag('config', 'UA-199678396-1');
-              `,
-            }}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
