@@ -25,7 +25,7 @@ export const HomeSection = styled.section`
         }
       }
       animation-name: animatedProfile;
-      animation-duration: 20s;
+      animation-duration: 5s;
       animation-iteration-count: infinite;
       color: var(--blue-200);
     }
