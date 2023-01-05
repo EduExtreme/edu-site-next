@@ -6,10 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     --blue-800:#000059;
     --blue-700:#14279B;
     --blue-600:#001E6C;
-    --blue-500:#0A043C;
-    --blue-400:#22D3EE;
-    --blue-300:#67E8F9;
-    --blue-200:#A5F3FC;
+    --blue-500:#0E3386;
+    --blue-400:#6495ED;
+    --blue-300:#5A4FCF;
+    --blue-200:#324AB2;
     --blue-100:#CFFAFE;
     --blue-50:#ECFEFF;
     --white: #ffffff;

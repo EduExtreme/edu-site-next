@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TodoApp, TodoSection } from './styles';
-
+import {GrAdd} from 'react-icons/gr'
 export function TodoProject() {
   const [todoTask, setTodoTask] = useState('');
   const [task, setTask] = useState([]);
@@ -31,6 +31,7 @@ export function TodoProject() {
     <TodoSection>
       <TodoApp>
         <h1>Todo APP</h1>
+        <div className='add-todo-app'>
         <input
           type="text"
           value={todoTask}
@@ -38,8 +39,9 @@ export function TodoProject() {
           placeholder="add a Task"
         />
         <button type="button" onClick={handleAdd}>
-          Add
+          <GrAdd />
         </button>
+        </div>
 
         {task.length > 0 ? (
           <ul>
@@ -56,7 +58,7 @@ export function TodoProject() {
             ))}
           </ul>
         ) : (
-          <p>Nenhuma Task Adcionada</p>
+          <p>Nenhuma Task Adicionada</p>
         )}
       </TodoApp>
     </TodoSection>
