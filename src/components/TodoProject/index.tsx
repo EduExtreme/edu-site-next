@@ -1,62 +1,88 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TodoApp, TodoSection } from './styles';
-import {GrAdd} from 'react-icons/gr'
+import { GrAdd, GrTask } from 'react-icons/gr';
+import { Button, Input, TodoApp, TodoSection } from './styles';
+
 export function TodoProject() {
-  const [todoTask, setTodoTask] = useState('');
-  const [task, setTask] = useState([]);
+  const [inputTask, setInputTask] = useState('');
+  const [tasks, setTasks] = useState([]);
 
   const handleAdd = () => {
-    if (todoTask) {
-      setTask([
+    if (inputTask) {
+      setTasks([
         {
           id: uuidv4(),
-          name: todoTask,
+          name: inputTask,
           isDone: false,
         },
-        ...task,
+        ...tasks,
       ]);
-      setTodoTask('');
+      setInputTask('');
     }
   };
 
   const deleteTask = (index: number) => {
-    task.splice(index, 1);
-    setTask([...task]);
+    tasks.splice(index, 1);
+    setTasks([...tasks]);
   };
-  const editTask = (index) => {};
+  const editTask = (index) => {
+    const updatedTodo = {
+      id: tasks.id,
+      name: tasks.name,
+      isDone: tasks.isDone,
+    };
+    setInputTask(updatedTodo);
+  };
+  console.log('LISTA DE TAREFAS', tasks);
 
-  console.log(task);
   return (
     <TodoSection>
       <TodoApp>
-        <h1>Todo APP</h1>
-        <div className='add-todo-app'>
-        <input
-          type="text"
-          value={todoTask}
-          onChange={(e) => setTodoTask(e.target.value)}
-          placeholder="add a Task"
-        />
-        <button type="button" onClick={handleAdd}>
-          <GrAdd />
-        </button>
+        <h1>TODO LIST</h1>
+        <div className="add-task">
+          <Input
+            value={inputTask}
+            onChange={(e) => setInputTask(e.target.value)}
+            placeholder="add a Task"
+          />
+          <Button type="button" onClick={handleAdd}>
+            <GrAdd /> add
+          </Button>
+        </div>
+        <div className="update-task">
+          <Input value={inputTask.name} onChange={(e) => editTask(e)} />
+          <Button
+            type="button"
+            onChange={(index) => setInputTask(index.target.value)}
+          >
+            Update
+          </Button>
+          <Button type="button">Cancel</Button>
         </div>
 
-        {task.length > 0 ? (
-          <ul>
-            {task.map((data, index) => (
-              <li key={uuidv4()}>
+        {tasks.length > 0 ? (
+          <div>
+            {tasks.map((data, index) => (
+              <p key={uuidv4()}>
                 {data.name}
-                <button type="button" onClick={() => deleteTask(index)}>
+                <Button type="button" onClick={() => deleteTask(index)}>
                   Delete
-                </button>
-                <button type="button" onClick={() => editTask(index)}>
-                  Concluir
-                </button>
-              </li>
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() =>
+                    setInputTask({
+                      id: data.id,
+                      name: data.name,
+                      isDone: false,
+                    })
+                  }
+                >
+                  EDIT TASK
+                </Button>
+              </p>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>Nenhuma Task Adicionada</p>
         )}
