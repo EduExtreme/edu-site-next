@@ -7,7 +7,7 @@ export const TodoSection = styled.section`
   align-items: center;
   background-color: var(--blue-200);
   width: 420px;
-  height: 400px;
+
   border-radius: 2rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -68,4 +68,21 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const TaskContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+
+  p {
+    display: flex;
+    width: 100%;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
 `;

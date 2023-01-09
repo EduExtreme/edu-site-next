@@ -1,39 +1,78 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { GrAdd, GrTask } from 'react-icons/gr';
-import { Button, Input, TodoApp, TodoSection } from './styles';
+import { GrAdd } from 'react-icons/gr';
+import { Button, Input, TaskContent, TodoApp, TodoSection } from './styles';
+
+interface Task {
+  id: string;
+  isDone: boolean;
+  name: string;
+}
+const PreviousTasks = [
+  {
+    id: '1',
+    isDone: false,
+    name: 'Primeira Task',
+  },
+  {
+    id: '2',
+    isDone: false,
+    name: 'Segunda Task',
+  },
+  {
+    id: '3',
+    isDone: false,
+    name: 'Terceira Task',
+  },
+  {
+    id: '4',
+    isDone: false,
+    name: 'Quarta Task',
+  },
+  {
+    id: '5',
+    isDone: false,
+    name: 'Quinta Task',
+  },
+];
 
 export function TodoProject() {
   const [inputTask, setInputTask] = useState('');
-  const [tasks, setTasks] = useState([]);
 
-  const handleAdd = () => {
+  const [tasks, setTasks] = useState<Task[]>(PreviousTasks);
+
+  const handleAddNewTask = () => {
     if (inputTask) {
-      setTasks([
-        {
-          id: uuidv4(),
-          name: inputTask,
-          isDone: false,
-        },
-        ...tasks,
-      ]);
+      const addsData = [...tasks];
+
+      addsData.push({
+        id: uuidv4(),
+        name: inputTask,
+        isDone: false,
+      });
+
+      setTasks(addsData);
       setInputTask('');
     }
   };
 
-  const deleteTask = (index: number) => {
-    tasks.splice(index, 1);
-    setTasks([...tasks]);
+  // const deleteTask = (index: number) => {
+  //   tasks.splice(index, 1);
+  //   setTasks([...tasks]);
+  // };
+  const deleteTask = (id: string) => {
+    const uptadeData = [...tasks];
+
+    const findTaskItem = uptadeData.filter((task) => {
+      return task.id !== id;
+    });
+
+    setTasks(findTaskItem);
   };
-  const editTask = (index) => {
-    const updatedTodo = {
-      id: tasks.id,
-      name: tasks.name,
-      isDone: tasks.isDone,
-    };
-    setInputTask(updatedTodo);
+
+  const handleUpdateTask = () => {
+    const updatedTodo = [...tasks];
   };
-  console.log('LISTA DE TAREFAS', tasks);
 
   return (
     <TodoSection>
@@ -45,44 +84,38 @@ export function TodoProject() {
             onChange={(e) => setInputTask(e.target.value)}
             placeholder="add a Task"
           />
-          <Button type="button" onClick={handleAdd}>
+          <Button type="button" onClick={handleAddNewTask}>
             <GrAdd /> add
           </Button>
         </div>
+
         <div className="update-task">
-          <Input value={inputTask.name} onChange={(e) => editTask(e)} />
-          <Button
-            type="button"
-            onChange={(index) => setInputTask(index.target.value)}
-          >
-            Update
+          <Input type="text" />
+
+          <Button type="button">Salvar</Button>
+
+          <Button type="button" onClick={() => setInputTask(tasks[0].name)}>
+            Cancel
           </Button>
-          <Button type="button">Cancel</Button>
         </div>
 
         {tasks.length > 0 ? (
-          <div>
-            {tasks.map((data, index) => (
-              <p key={uuidv4()}>
-                {data.name}
-                <Button type="button" onClick={() => deleteTask(index)}>
-                  Delete
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() =>
-                    setInputTask({
-                      id: data.id,
-                      name: data.name,
-                      isDone: false,
-                    })
-                  }
-                >
-                  EDIT TASK
-                </Button>
-              </p>
+          <TaskContent>
+            {tasks.map((data) => (
+              <Fragment key={data.id}>
+                <p>{data.name}</p>
+                <div>
+                  {' '}
+                  <Button type="button" onClick={() => deleteTask(data.id)}>
+                    Delete
+                  </Button>
+                  <Button type="button" onClick={() => setInputTask(data.name)}>
+                    EDIT TASK
+                  </Button>
+                </div>
+              </Fragment>
             ))}
-          </div>
+          </TaskContent>
         ) : (
           <p>Nenhuma Task Adicionada</p>
         )}
